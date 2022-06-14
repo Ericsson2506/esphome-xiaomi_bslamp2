@@ -74,6 +74,7 @@ light:
 
     # You can use any effects that you like. These are just examples.
     effects:
+    #RANDOM
       - random:
           name: "Slow Random"
           transition_length: 30s
@@ -82,6 +83,23 @@ light:
           name: "Fast Random"
           transition_length: 3s
           update_interval: 3s
+    #PULSE
+      - pulse:
+          name: "Fast Pulse"
+          transition_length: 0.5s
+          update_interval: 0.5s
+      - pulse:
+          name: "Slow Pulse"
+          transition_length: 1s
+          update_interval: 2s
+    #STROBE
+      - strobe:
+          name: "Strobe"
+    #FLICKER
+      - flicker:
+          name: "Flicker"
+          alpha: 85%
+          intensity: 1.5%
 
     # You can define one or more groups of presets. These presets can
     # be activated using various "preset.activate" action options.

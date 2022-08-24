@@ -120,13 +120,13 @@ light:
               red: 100%
               green: 0%
               blue: 0%
-              duration: 500ms
+              duration: 100ms
             - state: true
               brightness: 100%
               red: 0%
               green: 0%
               blue: 100%
-              duration: 500ms
+              duration: 100ms
     #FLICKER
       - flicker:
           name: "Flicker 85/1.5%"

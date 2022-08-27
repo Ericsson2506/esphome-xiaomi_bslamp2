@@ -103,15 +103,15 @@ light:
               red: 100%
               green: 90%
               blue: 0%
-              duration: 500ms
+              duration: 100ms
             - state: false
-              duration: 250ms
+              duration: 100ms
             - state: true
               brightness: 100%
               red: 0%
               green: 100%
               blue: 0%
-              duration: 500ms
+              duration: 100ms
       - strobe:
           name: "Strobe Blue/Red"
           colors:
@@ -145,6 +145,27 @@ light:
             auto call = id(my_light).turn_on();
             // Transition of 1000ms = 1s
             call.set_transition_length(1000);
+            if (state == 0) {
+              call.set_rgb(1.0, 1.0, 1.0);
+            } else if (state == 1) {
+              call.set_rgb(1.0, 0.0, 1.0);
+            } else if (state == 2) {
+              call.set_rgb(0.0, 0.0, 1.0);
+            } else {
+              call.set_rgb(1.0, 0.0, 0.0);
+            }
+            call.perform();
+            state += 1;
+            if (state == 4)
+              state = 0;
+      - lambda:
+          name: "Lambda fast"
+          update_interval: 1s
+          lambda: |-
+            static int state = 0;
+            auto call = id(my_light).turn_on();
+            // Transition of 1000ms = 1s
+            call.set_transition_length(1);
             if (state == 0) {
               call.set_rgb(1.0, 1.0, 1.0);
             } else if (state == 1) {
